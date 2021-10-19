@@ -12,6 +12,7 @@ const port = process.env.PORT || 5000;
 const uri = "mongodb+srv://simmus:simmus@cluster.h5ekt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(uri, { useNewUrlParser: true}
 );
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
