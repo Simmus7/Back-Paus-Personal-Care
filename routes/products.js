@@ -7,8 +7,10 @@ let Product = require('../models/product.model');
 
 router.get('/get', async (req, res) => {
   await Product.find()
-    .then(products => res.json(products)& 
-    console.log("Productos entregados"))
+    .then(products => {
+      res.json(products); 
+      console.log("Productos entregados");
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
