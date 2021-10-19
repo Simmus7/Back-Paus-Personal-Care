@@ -7,10 +7,9 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 const port = process.env.PORT || 5000;
-console.log (process.env.ATLAS_URI)
-console.log (process.env.PORT) 
+ 
 //Conexión con la base de datos
-const uri = process.env.ATLAS_URI;
+const uri = "mongodb+srv://simmus:simmus@cluster.h5ekt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(uri, { useNewUrlParser: true}
 );
 const connection = mongoose.connection;
