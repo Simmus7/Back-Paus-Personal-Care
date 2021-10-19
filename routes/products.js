@@ -5,14 +5,14 @@ const router = require('express').Router();
 let Product = require('../models/product.model');
 
 
-router.get('/get', (req, res) => {
-  Product.find()
+router.get('/get', async (req, res) => {
+  await Product.find()
     .then(products => res.json(products)& 
     console.log("Productos entregados"))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.post('/add', (req, res) => {
+router.post('/add', async (req, res) => {
 
   const productname = req.body.productname;
   const description = req.body.description;
@@ -28,7 +28,7 @@ router.post('/add', (req, res) => {
     
   });
 
-  newProduct.save()
+  await newProduct.save()
   .then(() => res.json('Product added!'))
   .catch(() => res.json('Cannot add, please write name, description and price'));
 });
